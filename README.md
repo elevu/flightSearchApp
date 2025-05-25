@@ -1,5 +1,8 @@
 # Flight Search App
 
+![May-25-2025 16-34-50](https://github.com/user-attachments/assets/3b9bf9b3-fad9-4735-9b6b-358e715bc8a7)
+
+
 A simple React + TypeScript app to search for flights between airports, using Ant Design components.
 Bootstrapped with Vite.
 
@@ -46,3 +49,4 @@ npm run format
 - Improve responsive design, it's partially responsive but not fully
 - Add complete integration and E2E test coverage
 - Address some compatibility issues with Ant Design and React 19
+- Improve form validation, being showed only on Submit
