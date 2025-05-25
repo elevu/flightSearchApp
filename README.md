@@ -17,31 +17,38 @@ npm run dev
 ```
 
 ## To run e2e cypress tests
+
 Make sure the app is running on http://localhost:5173/ then
 
 ```
 npm run cypress
 ```
+
 ## Other scripts
 
 Linting
+
 ```
 npm run lint
 ```
+
 Apply prettier formatting
+
 ```
 npm run format
 ```
 
 ### What I have done
+
 - Added Ant Design as a component library to speed up development
 - Implemented all required features from the assignment
 - Added some additional features:
-- - URL-based search navigation 
+- - URL-based search navigation
 - - Skeleton loading with simulated backend methods
 - Created some simple end-to-end Cypress tests
 
 ### What I would have done with more time
+
 - Improve CSS organization, currently uses mostly inline styles due to time constraints
 - Refactor code to make components more atomic and reusable
 - Improve styling of rushed components (e.g., skeleton loader)
