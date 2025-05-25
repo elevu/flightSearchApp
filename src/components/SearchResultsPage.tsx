@@ -97,12 +97,12 @@ const SearchResults: React.FC = () => {
 
         {loading
           ? // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-          [...Array(5)].map((_, i) => (
-            <FlightCard key={`skeleton-${String(i)}`} flight={{} as Flight} loading />
-          ))
+            [...Array(5)].map((_, i) => (
+              <FlightCard key={`skeleton-${String(i)}`} flight={{} as Flight} loading />
+            ))
           : sortedFlights.map((flight) => (
-            <FlightCard key={flight.id} flight={flight} loading={loading} />
-          ))}
+              <FlightCard key={flight.id} flight={flight} loading={loading} />
+            ))}
 
         {sortedFlights.length === 0 && <Text>No flights found matching your search.</Text>}
       </div>

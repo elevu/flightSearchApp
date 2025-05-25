@@ -75,7 +75,7 @@ export const FlightCard = ({ flight, loading }: { flight: Flight; loading: boole
           )}
           <div style={{ marginTop: 12 }}>
             {loading ? (
-              <Skeleton.Button active size='default' className='select-flight-placeholder'/>
+              <Skeleton.Button active size='default' className='select-flight-placeholder' />
             ) : (
               <Button type='primary'>Select flight</Button>
             )}
