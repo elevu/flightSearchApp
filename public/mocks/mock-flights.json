@@ -1,0 +1,110 @@
+[
+  {
+    "id": "f1",
+    "airline": "Delta",
+    "flightNumber": "DL101",
+    "origin": "JFK",
+    "destination": "LAX",
+    "departureTime": "2023-06-01T08:00:00Z",
+    "arrivalTime": "2023-06-01T11:30:00Z",
+    "price": 299,
+    "stops": 0,
+    "duration": 330
+  },
+  {
+    "id": "f2",
+    "airline": "American Airlines",
+    "flightNumber": "AA208",
+    "origin": "JFK",
+    "destination": "LAX",
+    "departureTime": "2023-06-01T10:00:00Z",
+    "arrivalTime": "2023-06-01T16:00:00Z",
+    "price": 275,
+    "stops": 1,
+    "duration": 360
+  },
+  {
+    "id": "f3",
+    "airline": "British Airways",
+    "flightNumber": "BA112",
+    "origin": "LHR",
+    "destination": "JFK",
+    "departureTime": "2023-06-01T14:00:00Z",
+    "arrivalTime": "2023-06-01T17:30:00Z",
+    "price": 450,
+    "stops": 0,
+    "duration": 450
+  },
+  {
+    "id": "f4",
+    "airline": "Air France",
+    "flightNumber": "AF220",
+    "origin": "CDG",
+    "destination": "JFK",
+    "departureTime": "2023-06-01T12:00:00Z",
+    "arrivalTime": "2023-06-01T18:00:00Z",
+    "price": 480,
+    "stops": 1,
+    "duration": 540
+  },
+  {
+    "id": "f5",
+    "airline": "Emirates",
+    "flightNumber": "EK201",
+    "origin": "DXB",
+    "destination": "JFK",
+    "departureTime": "2023-06-01T02:00:00Z",
+    "arrivalTime": "2023-06-01T14:00:00Z",
+    "price": 720,
+    "stops": 0,
+    "duration": 720
+  },
+  {
+    "id": "f6",
+    "airline": "Qantas",
+    "flightNumber": "QF101",
+    "origin": "SYD",
+    "destination": "LAX",
+    "departureTime": "2023-06-01T18:00:00Z",
+    "arrivalTime": "2023-06-02T06:00:00Z",
+    "price": 850,
+    "stops": 0,
+    "duration": 840
+  },
+  {
+    "id": "f7",
+    "airline": "Japan Airlines",
+    "flightNumber": "JL52",
+    "origin": "NRT",
+    "destination": "JFK",
+    "departureTime": "2023-06-01T10:00:00Z",
+    "arrivalTime": "2023-06-01T22:00:00Z",
+    "price": 900,
+    "stops": 1,
+    "duration": 960
+  },
+  {
+    "id": "f8",
+    "airline": "KLM",
+    "flightNumber": "KL642",
+    "origin": "AMS",
+    "destination": "LHR",
+    "departureTime": "2023-06-01T09:00:00Z",
+    "arrivalTime": "2023-06-01T10:30:00Z",
+    "price": 180,
+    "stops": 0,
+    "duration": 90
+  },
+  {
+    "id": "f9",
+    "airline": "Lufthansa",
+    "flightNumber": "LH400",
+    "origin": "AMS",
+    "destination": "NRT",
+    "departureTime": "2023-06-01T13:00:00Z",
+    "arrivalTime": "2023-06-02T08:00:00Z",
+    "price": 750,
+    "stops": 1,
+    "duration": 1140
+  }
+]
