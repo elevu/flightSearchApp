@@ -2,7 +2,6 @@
 
 ![May-25-2025 16-34-50](https://github.com/user-attachments/assets/3b9bf9b3-fad9-4735-9b6b-358e715bc8a7)
 
-
 A simple React + TypeScript app to search for flights between airports, using Ant Design components.
 Bootstrapped with Vite.
 
