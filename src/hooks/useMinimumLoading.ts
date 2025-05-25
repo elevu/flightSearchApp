@@ -23,9 +23,7 @@ export function useMinimumLoading<T>(
       setData(result)
       setLoading(false)
     }
-
-    // eslint-disable-next-line @typescript-eslint/no-floating-promises
-    load()
+    void load()
   }, [loadFn, minDelay])
 
   return { data, loading }
