@@ -1,54 +1,48 @@
-# React + TypeScript + Vite
+# Flight Search App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple React + TypeScript app to search for flights between airports, using Ant Design components.
+Bootstrapped with Vite.
 
-Currently, two official plugins are available:
+## To run
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+```
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
 ```
+npm run dev
+```
+
+## To run e2e cypress tests
+Make sure the app is running on http://localhost:5173/ then
+
+```
+npm run cypress
+```
+## Other scripts
+
+Linting
+```
+npm run lint
+```
+Apply prettier formatting
+```
+npm run format
+```
+
+### What I have done
+- Added Ant Design as a component library to speed up development
+- Implemented all required features from the assignment
+- Added some additional features:
+- - URL-based search navigation 
+- - Skeleton loading with simulated backend methods
+- Created some simple end-to-end Cypress tests
+
+### What I would have done with more time
+- Improve CSS organization, currently uses mostly inline styles due to time constraints
+- Refactor code to make components more atomic and reusable
+- Improve styling of rushed components (e.g., skeleton loader)
+- Add better error-handling UIs
+- Improve responsive design, it's partially responsive but not fully
+- Add complete integration and E2E test coverage
+- Address some compatibility issues with Ant Design and React 19
