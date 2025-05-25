@@ -1,6 +1,8 @@
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
+import SearchResults from './components/SearchResultsPage.tsx'
 import { ConfigProvider, Layout, Result, theme } from 'antd'
 import React from 'react'
+import SearchPage from './components/SearchPage.tsx'
 
 const { Header, Content, Footer } = Layout
 
@@ -43,8 +45,8 @@ const App: React.FC = () => {
               }}
             >
               <Routes>
-                <Route path='/' element={<div />} />
-                <Route path='/search' element={<div />} />
+                <Route path='/' element={<SearchPage />} />
+                <Route path='/search' element={<SearchResults />} />
                 <Route
                   path='*'
                   element={
