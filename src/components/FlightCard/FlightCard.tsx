@@ -11,7 +11,6 @@ export const FlightCard = ({ flight, loading }: { flight: Flight; loading: boole
   return (
     <Card key={flight.id} style={{ marginBottom: 20 }}>
       <Row align='middle' justify='space-between' style={{ width: '100%' }}>
-        {/* Time and route */}
         <Col
           flex='1'
           style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}
@@ -33,8 +32,6 @@ export const FlightCard = ({ flight, loading }: { flight: Flight; loading: boole
             </>
           )}
         </Col>
-
-        {/* Airline + stops */}
         <Col
           flex='1'
           style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}
@@ -57,8 +54,6 @@ export const FlightCard = ({ flight, loading }: { flight: Flight; loading: boole
             </>
           )}
         </Col>
-
-        {/* Price and button */}
         <Col flex='0 0 180px' style={{ textAlign: 'right' }}>
           {loading ? (
             <>

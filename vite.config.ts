@@ -5,11 +5,11 @@ import { resolve } from 'path'
 export default defineConfig({
   plugins: [react()],
   test: {
-    globals: true, // use global test APIs (describe, it, expect)
-    environment: 'jsdom', // or 'happy-dom'
+    globals: true,
+    environment: 'jsdom',
     setupFiles: ['./vitest.setup.ts'],
     coverage: {
-      provider: 'istanbul', // or 'c8'
+      provider: 'istanbul',
       reporter: ['text', 'json', 'html'],
     },
     alias: {
