@@ -6,6 +6,7 @@ import { flightTakeOff } from '../assets/flightTakeOff.tsx'
 import { flightLand } from '../assets/flightLand.tsx'
 import { useMinimumLoading } from '../hooks/useMinimumLoading.ts'
 import { loadAirports } from '../services/data.ts'
+import type { FlightSearchFormValues } from '../services/types/General.ts'
 
 const formatAirport = (airport: Airport) => `${airport.city}, (${airport.country}) ${airport.code}`
 
@@ -16,31 +17,30 @@ const FlightSearchForm: React.FC = () => {
   const { data } = useMinimumLoading<Airport[]>(loadAirports, 50)
   const airports = data ?? []
   useEffect(() => {
-    const from = searchParams.get('from') || ''
-    const to = searchParams.get('to') || ''
+    const from = searchParams.get('from') ?? ''
+    const to = searchParams.get('to') ?? ''
     form.setFieldsValue({ origin: from, destination: to })
   }, [form, searchParams])
 
   const validAirportCodes = airports.map((a) => a.code)
 
-  const onFinish = (values: any) => {
+  const onFinish = (values: FlightSearchFormValues) => {
     const { origin, destination } = values
 
     if (!validAirportCodes.includes(origin)) {
-      message.error(`Invalid origin airport code: "${origin}"`)
+      void message.error(`Invalid origin airport code: "${origin}"`)
       return
     }
     if (!validAirportCodes.includes(destination)) {
-      message.error(`Invalid destination airport code: "${destination}"`)
+      void message.error(`Invalid destination airport code: "${destination}"`)
       return
     }
     if (origin === destination) {
-      message.error('Origin and destination cannot be the same.')
+      void message.error('Origin and destination cannot be the same.')
       return
     }
 
-    // eslint-disable-next-line @typescript-eslint/no-floating-promises
-    navigate(`/search?from=${origin}&to=${destination}`)
+    void navigate(`/search?from=${origin}&to=${destination}`)
   }
 
   const airportOptions = airports.map((airport) => ({
@@ -65,9 +65,9 @@ const FlightSearchForm: React.FC = () => {
           rules={[
             { required: true, message: 'Please select an origin airport' },
             {
-              validator: (_, value) =>
+              validator: (_, value: string) =>
                 value && !validAirportCodes.includes(value)
-                  ? Promise.reject('Invalid origin airport code')
+                  ? Promise.reject(new Error('Invalid origin airport code'))
                   : Promise.resolve(),
             },
           ]}
@@ -75,7 +75,7 @@ const FlightSearchForm: React.FC = () => {
           <AutoComplete
             options={airportOptions}
             filterOption={(inputValue, option) =>
-              option?.label.toLowerCase().includes(inputValue.toLowerCase())
+              option?.label.toLowerCase().includes(inputValue.toLowerCase()) ?? false
             }
           >
             <Input prefix={flightTakeOff} placeholder='From' style={{ height: '100%' }} />
@@ -89,13 +89,13 @@ const FlightSearchForm: React.FC = () => {
           rules={[
             { required: true, message: 'Please select a destination airport' },
             {
-              validator: (_, value) => {
-                const origin = form.getFieldValue('origin')
+              validator: (_, value: string) => {
+                const origin = form.getFieldValue('origin') as FlightSearchFormValues['origin']
                 if (value && !validAirportCodes.includes(value)) {
-                  return Promise.reject('Invalid destination airport code')
+                  return Promise.reject(new Error('Invalid destination airport code'))
                 }
                 if (value && origin === value) {
-                  return Promise.reject('Origin and destination must differ')
+                  return Promise.reject(new Error('Origin and destination must differ'))
                 }
                 return Promise.resolve()
               },
@@ -105,7 +105,7 @@ const FlightSearchForm: React.FC = () => {
           <AutoComplete
             options={airportOptions}
             filterOption={(inputValue, option) =>
-              option?.label.toLowerCase().includes(inputValue.toLowerCase())
+              option?.label.toLowerCase().includes(inputValue.toLowerCase()) ?? false
             }
             style={{ width: '100%' }}
           >

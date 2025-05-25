@@ -1,3 +1,4 @@
-export interface ListWrapper<T> {
-  items: T[]
+export interface FlightSearchFormValues {
+  origin: string
+  destination: string
 }
