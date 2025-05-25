@@ -96,9 +96,8 @@ const SearchResults: React.FC = () => {
         </Row>
 
         {loading
-          ?
-          Array.from({ length: 5 }, (_, i) => (
-              <FlightCard key={`skeleton-${String(i)}`} flight={{} as Flight}  loading={loading}/>
+          ? Array.from({ length: 5 }, (_, i) => (
+              <FlightCard key={`skeleton-${String(i)}`} flight={{} as Flight} loading={loading} />
             ))
           : sortedFlights.map((flight) => (
               <FlightCard key={flight.id} flight={flight} loading={loading} />
