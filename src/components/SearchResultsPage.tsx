@@ -4,7 +4,7 @@ import { Checkbox, Row, Col, Typography, Select, Space } from 'antd'
 import type { Flight } from '../services/types/Flight'
 import { useMinimumLoading } from '../hooks/useMinimumLoading'
 import { loadFlights } from '../services/data.ts'
-import { FlightCard } from './FlightCard.tsx'
+import { FlightCard } from './FlightCard/FlightCard.tsx'
 import FlightSearchForm from './FlightSearchForm.tsx'
 
 const { Text, Title } = Typography
@@ -14,7 +14,7 @@ const SearchResults: React.FC = () => {
   const { data, loading } = useMinimumLoading<Flight[]>(loadFlights, 800)
   const [directOnly, setDirectOnly] = useState(false)
   const [sortBy, setSortBy] = useState<'price' | 'duration' | 'departure'>('price')
-  const allFlights: Flight[] = data ?? []
+  const allFlights = useMemo<Flight[]>(() => data ?? [], [data])
   const [searchParams] = useSearchParams()
   const from = searchParams.get('from')
   const to = searchParams.get('to')
@@ -96,9 +96,9 @@ const SearchResults: React.FC = () => {
         </Row>
 
         {loading
-          ? // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-            [...Array(5)].map((_, i) => (
-              <FlightCard key={`skeleton-${String(i)}`} flight={{} as Flight} loading />
+          ?
+          Array.from({ length: 5 }, (_, i) => (
+              <FlightCard key={`skeleton-${String(i)}`} flight={{} as Flight}  loading={loading}/>
             ))
           : sortedFlights.map((flight) => (
               <FlightCard key={flight.id} flight={flight} loading={loading} />

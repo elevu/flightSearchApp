@@ -1,6 +1,6 @@
 import { Button, Card, Col, Row, Typography, Skeleton } from 'antd'
 import './FlightCard.css'
-import type { Flight } from '../services/types/Flight.ts'
+import type { Flight } from '../../services/types/Flight.ts'
 
 const { Text, Title } = Typography
 
@@ -9,7 +9,7 @@ const formatTime = (iso: string) =>
 
 export const FlightCard = ({ flight, loading }: { flight: Flight; loading: boolean }) => {
   return (
-    <Card key={flight.id} style={{ marginBottom: 20 }} bodyStyle={{ padding: 24 }}>
+    <Card key={flight.id} style={{ marginBottom: 20 }}>
       <Row align='middle' justify='space-between' style={{ width: '100%' }}>
         {/* Time and route */}
         <Col
